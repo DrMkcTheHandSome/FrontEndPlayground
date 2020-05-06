@@ -1,0 +1,36 @@
+{
+	"tableName": "UserType",
+	"data": [{
+		"name": "Admin",
+		"description": "A2A",
+		"isactive": true
+	}, {
+		"name": "Account Manager",
+		"description": "B2B",
+		"isactive": true
+	}, {
+		"name": "Fleet Manager",
+		"description": "C2C",
+		"isactive": true
+	}, {
+		"name": "HR",
+		"description": "D2D",
+		"isactive": true
+	}, {
+		"name": "Sales Manager",
+		"description": "E2E",
+		"isactive": true
+	}, {
+		"name": "Product Manager",
+		"description": "F2F",
+		"isactive": true
+	}, {
+		"name": "IT Manager",
+		"description": "G2G",
+		"isactive": true
+	}, {
+		"name": "Sales Representative",
+		"description": "H2H",
+		"isactive": true
+	}]
+}

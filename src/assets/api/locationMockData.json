@@ -1,0 +1,36 @@
+{
+	"tableName": "Location",
+	"data": [{
+		"name": "Los Angeles",
+		"description": "A2A",
+		"isactive": true
+	}, {
+		"name": "Philadelphia",
+		"description": "B2B",
+		"isactive": false
+	}, {
+		"name": "Oklahoma",
+		"description": "C2C",
+		"isactive": true
+	}, {
+		"name": "New York",
+		"description": "D2D",
+		"isactive": true
+	}, {
+		"name": "Boston",
+		"description": "E2E",
+		"isactive": true
+	}, {
+		"name": "Toronto",
+		"description": "F2F",
+		"isactive": true
+	}, {
+		"name": "San Antonio",
+		"description": "G2G",
+		"isactive": true
+	}, {
+		"name": "Golden State",
+		"description": "H2H",
+		"isactive": true
+	}]
+}

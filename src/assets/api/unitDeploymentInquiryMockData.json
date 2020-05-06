@@ -1,0 +1,100 @@
+{
+		"tableName": "UnitDeploymentInquiry",
+		"data": [{
+			"customer": "Kansas University",
+			"serialnumber": 125,
+			"assettag": "Z",
+			"devicetype": "Printer",
+			"location": "Los Angeles",
+			"industry": "Marketing",
+			"clienttype": "Flatterbut",
+			"usertype": "IT Manager",
+			"datecreated": "2020-04-25T16:00:00.000Z",
+			"rating": 5,
+			"isDeleted": false
+		}, {
+			"customer": "Texas University",
+			"serialnumber": 213,
+			"assettag": "W",
+			"devicetype": "Printer",
+			"location": "Los Angeles",
+			"industry": "Marketing",
+			"clienttype": "Flatterbut",
+			"usertype": "IT Manager",
+			"datecreated": "2020-05-25T16:00:00.000Z",
+			"rating": 4,
+			"isDeleted": false
+		}, {
+			"customer": "Jose Rizal University",
+			"serialnumber": 154,
+			"assettag": "X",
+			"devicetype": "Laptop",
+			"location": "Chicago",
+			"industry": "Marketing",
+			"clienttype": "Flatterbut",
+			"usertype": "IT Manager",
+			"datecreated": "2020-06-25T16:00:00.000Z",
+			"rating": 3,
+			"isDeleted": false
+		}, {
+			"customer": "San Beda University",
+			"serialnumber": 175,
+			"assettag": "Y",
+			"devicetype": "Laptop",
+			"location": "Chicago",
+			"industry": "Marketing",
+			"clienttype": "H8tr",
+			"usertype": "Medical Representative",
+			"datecreated": "2020-07-25T16:00:00.000Z",
+			"rating": 2,
+			"isDeleted": false
+		}, {
+			"customer": "Mapua University",
+			"serialnumber": 163,
+			"assettag": "K",
+			"devicetype": "Mouse",
+			"location": "Oklahoma",
+			"industry": "Advertising",
+			"clienttype": "H8tr",
+			"usertype": "Medical Representative",
+			"datecreated": "2020-04-25T16:00:00.000Z",
+			"rating": 1,
+			"isDeleted": false
+		}, {
+			"customer": "University of Philippines",
+			"serialnumber": 126,
+			"assettag": "O",
+			"devicetype": "Video Card",
+			"location": "Oklahoma",
+			"industry": "Advertising",
+			"clienttype": "H8tr",
+			"usertype": "Medical Representative",
+			"datecreated": "2020-04-25T16:00:00.000Z",
+			"rating": 5,
+			"isDeleted": false
+		}, {
+			"customer": "Far Eastern University",
+			"serialnumber": 127,
+			"assettag": "P",
+			"devicetype": "Video Card",
+			"location": "Boston",
+			"industry": "Advertising",
+			"clienttype": "H8tr",
+			"usertype": "Product Manager",
+			"datecreated": "2020-04-25T16:00:00.000Z",
+			"rating": 2,
+			"isDeleted": false
+		}, {
+			"customer": "Ateneo De Manila University",
+			"serialnumber": 232,
+			"assettag": "Q",
+			"devicetype": "Video Card",
+			"location": "Boston",
+			"industry": "Sales",
+			"clienttype": "Holy Grail",
+			"usertype": "Product Manager",
+			"datecreated": "2020-04-25T16:00:00.000Z",
+			"rating": 3,
+			"isDeleted": false
+		}]
+	}

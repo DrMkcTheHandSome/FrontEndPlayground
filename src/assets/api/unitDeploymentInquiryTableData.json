@@ -1,0 +1,77 @@
+{
+    "types": [
+      {
+        "type": "text",
+        "label": "Customer",
+        "name": "customer",
+        "id": "customer",
+        "class": "customer",
+        "validator": ["Validators.required", "Validators.maxLength(10)", "Validators.minLength(6)","ValidateUpperCase"]
+      },
+      {
+        "type": "number",
+        "label": "Serial Number",
+        "name": "serialnumber",
+        "id": "serialnumber",
+        "class": "serialnumber",
+        "validator": ["Validators.required", "Validators.maxLength(10)"]
+      },
+      {
+        "type": "select",
+        "label": "Device Type",
+        "name": "devicetype",
+        "id": "devicetype",
+        "class": "devicetype",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "select",
+        "label": "Location",
+        "name": "location",
+        "id": "location",
+        "class": "location",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "select",
+        "label": "Industry",
+        "name": "industry",
+        "id": "industry",
+        "class": "industry",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "select",
+        "label": "Client Type",
+        "name": "clienttype",
+        "id": "clienttype",
+        "class": "clienttype",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "select",
+        "label": "User Type",
+        "name": "usertype",
+        "id": "usertype",
+        "class": "usertype",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "datepicker",
+        "label": "Date Created",
+        "name": "datecreated",
+        "id": "datecreated",
+        "class": "datecreated",
+        "validator": ["Validators.required"]
+      },
+      {
+        "type": "number",
+        "label": "Rating",
+        "name": "rating",
+        "id": "rating",
+        "class": "rating",
+        "validator": ["Validators.required", "Validators.maxLength(10)","Validators.min(3)"]
+      }
+    ],
+    "tableName": "UnitDeploymentInquiry"
+  }

@@ -1,0 +1,100 @@
+
+<div class="example-container mat-elevation-z8">
+        <div class="example-header">
+                <mat-form-field className="align">
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                </mat-form-field>
+                <div class="col-12">
+                    <div class="btn-group btn-group" role="group" aria-label="...">
+                        <button (click)="openCreateDialog()" class="btn btn-success">Create {{pageTitle}}</button>
+                        <button (click)="fetchUnitInquiryData()" class="btn btn-brand" matTooltip="Unit Inquiry">Unit Inquiry</button>
+                        <button (click)="fetchDeviceTypeData()" class="btn btn-brand" matTooltip="Device Types">Device Types</button>
+                        <button (click)="showDeviceTypeErrorHandler()" class="btn btn-danger" matTooltip="Device Types">Device Types Error Handler Example</button>
+                        <button (click)="fetchLocationData()" class="btn btn-brand" matTooltip="Locations">Locations</button>
+                        <button (click)="fetchIndustryData()" class="btn btn-brand" matTooltip="Industries">Industries</button>
+                        <button (click)="fetchClientTypeData()" class="btn btn-brand" matTooltip="Client Types">Client Types</button>
+                        <button (click)="fetchUserTypeData()" class="btn btn-brand" matTooltip="User Types">User Types</button>
+                    </div>
+                  </div>
+                <h1>&nbsp;&nbsp;{{pageTitle}}</h1>
+              </div>
+   <kt-dynamic-table [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData"  (ratingClicked)='onRatingClicked($event)'
+   (deleteClicked)='onDeleteClicked($event)'></kt-dynamic-table>
+    <mat-paginator #paginator
+    [length]="totalData"
+    [pageSize]="5"
+    (page)="setPagination($event)">
+  </mat-paginator>
+  </div>
+
+  <!-- RXJS Practice -->
+   <!-- 
+<div *ngIf="devicetype$ | async as devicetypes">
+  <table>
+    <tr *ngFor="let devicetype of devicetypes.data">
+    <td>{{devicetype.name}} &nbsp; {{devicetype.description}} &nbsp; {{devicetype.isactive}}</td>
+    </tr>
+  </table>
+</div>
+
+<br> 
+<p>========================Device Type Table Data =====================================</p>
+<div *ngIf="devicetypetabledata$ | async as devicetypetabledata">
+    <table>
+      <tr *ngFor="let devicetypetabledata of  devicetypetabledata.types">
+      <td>{{devicetypetabledata.label}} &nbsp; {{devicetypetabledata.type}}</td>
+      </tr>
+    </table>
+</div>
+<p>========================Device Type using MAP rxjs operator  =====================================</p>
+<div *ngIf="devicetypeArrayData$  | async as devicetypeArrayData">
+    <table>
+      <tr *ngFor="let devicetypetabledata of  devicetypeArrayData">
+          <td>{{devicetypetabledata.name}} &nbsp; {{devicetypetabledata.description}} &nbsp; {{devicetypetabledata.isdeleted}}</td>
+        </tr>
+    </table>
+</div>
+
+-->
+<!-- <p>========================Device Type using CombineLatest  =====================================</p>
+<div *ngIf="devicetypeMockDataAndTableData$  | async as devicetypeMockDataAndTableData">
+    <table>
+      <tr *ngFor="let devicetypetabledata of  devicetypeMockDataAndTableData.mockData.data">
+          <td>{{devicetypetabledata.name}} &nbsp; {{devicetypetabledata.description}} </td>
+        </tr>
+    </table>
+</div> -->
+  
+
+<!-- <p>========================Device Type using ForkJoin  =====================================</p>
+<div *ngIf="devicetypeMockDataAndTableDataForkJoin$  | async as devicetypeMockDataAndTableDataForkJoin">
+      <div *ngFor="let devicetypetabledata of devicetypeMockDataAndTableDataForkJoin">
+          <table>
+          <tr *ngFor="let deviceType of devicetypetabledata.data">
+              <td>{{deviceType.name}} &nbsp; {{deviceType.description}} </td>
+            </tr>
+          </table>
+          </div>
+</div> -->
+<!-- <button (click)="rxjsPractice()" class="btn btn-brand">Behavior Subject</button>
+<div *ngIf="deviceTypeMockDataBehaviorSubject$ | async as deviceTypeMockDataBehaviorSubject">
+
+</div>
+
+<p>========================Device Type using Subscribe  =====================================</p>
+<div *ngIf="pageTitle == 'Device Type'">
+    <table>
+      <tr *ngFor="let devicetypetabledata of devicetypeArrayDataSubscribe.mockData.data">
+          <td>{{devicetypetabledata.name}} &nbsp; {{devicetypetabledata.description}}</td>
+        </tr>
+    </table>
+</div> -->
+
+<!-- <p>========================Device Type Next Error Complete  =====================================</p>
+<div *ngIf="pageTitle == 'Device Type'">
+    <table>
+      <tr *ngFor="let devicetypetabledata of devicetypeArrayDataSubscribe">
+          <td>{{devicetypetabledata.name}} &nbsp; {{devicetypetabledata.description}}</td>
+        </tr>
+    </table>
+</div>  -->

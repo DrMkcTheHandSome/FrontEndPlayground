@@ -1,0 +1,24 @@
+{
+	"types": [{
+		"type": "text",
+		"label": "Name",
+		"name": "name",
+		"id": "name",
+		"class": "name",
+		"validator": ["Validators.required", "Validators.maxLength(10)"]
+	}, {
+		"type": "text",
+		"label": "Description",
+		"name": "description",
+		"id": "description",
+		"class": "description",
+		"validator": ["Validators.required", "Validators.maxLength(10)"]
+	}, {
+		"type": "toggle",
+		"label": "Active",
+		"name": "isactive",
+		"id": "isactive",
+		"class": "isactive"
+	}],
+	"tableName": "DeviceType"
+}

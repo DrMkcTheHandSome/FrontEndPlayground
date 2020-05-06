@@ -1,0 +1,36 @@
+{
+	"tableName": "DeviceType",
+	"data": [{
+		"name": "Printer",
+		"description": "A2A",
+		"isactive": true
+	}, {
+		"name": "Modems",
+		"description": "B2B",
+		"isactive": false
+	}, {
+		"name": "Laptop",
+		"description": "C2C",
+		"isactive": true
+	}, {
+		"name": "Cellphone",
+		"description": "D2D",
+		"isactive": true
+	}, {
+		"name": "Monitor",
+		"description": "E2E",
+		"isactive": true
+	}, {
+		"name": "Mouse",
+		"description": "F2F",
+		"isactive": true
+	}, {
+		"name": "Projector",
+		"description": "G2G",
+		"isactive": true
+	}, {
+		"name": "Video Card",
+		"description": "H2H",
+		"isactive": true
+	}]
+}

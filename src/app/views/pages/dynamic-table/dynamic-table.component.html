@@ -1,0 +1,35 @@
+<mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnHeaderName">
+          <mat-header-cell mat-sort-header={{column.name}} *cdkHeaderCellDef class="uppercase">
+              {{column.columnHeaderName}}
+          </mat-header-cell>
+          <mat-cell *cdkCellDef="let row">
+                  <div class="cb-center"  *ngIf="column.type == 'text'  || column.type == 'select'">
+                    <p>{{rowValues(column.cell(row))}}</p>
+                  </div>
+                  <div *ngIf="column.type == 'number' && column.name == 'rating'">
+                      <pm-star [rating]='rowValues(column.cell(row))'
+                      (ratingClicked)='onRatingClicked($event)'>
+                       </pm-star>
+                  </div>
+                  <div *ngIf="column.type == 'number' && column.name != 'rating'">
+                    <p class="align-right">{{rowValues(column.cell(row))}}</p>
+                  </div>
+                  <div class="cb-center"  *ngIf="column.type == 'toggle'">
+                    <mat-slide-toggle class="example-margin" [color]="accent" [checked]="rowValues(column.cell(row))"></mat-slide-toggle>
+                  </div>
+                  <div class="cb-center"  *ngIf="column.type == 'datepicker'">
+                      <p>{{rowValues(column.cell(row)) | customdatepipe}}</p>
+                    </div>
+          </mat-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="actions">
+            <mat-header-cell *cdkHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *cdkCellDef="let row">
+                <i class="flaticon-edit" (click)="openUpdateDialog(row)" matTooltip="Edit"></i>
+                &nbsp;   <i class="flaticon-delete" (click)="openDeleteDialog(row)" matTooltip="Delete"></i> 
+            </mat-cell>
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>     

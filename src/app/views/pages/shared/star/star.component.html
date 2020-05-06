@@ -1,0 +1,10 @@
+<div class="star"
+     [title]="rating"
+     (click)="onClick()">
+  <div style="width: 75px">
+         <ng-container  *ngFor="let starIconArrayValue of starIconArray;let i = index">
+            <span [innerHTML]="starIconArrayValue"></span>
+          </ng-container>
+  </div>
+</div>
+

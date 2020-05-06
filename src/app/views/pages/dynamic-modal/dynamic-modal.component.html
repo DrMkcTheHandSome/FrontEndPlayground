@@ -1,0 +1,102 @@
+<ng-container *ngIf="data.columnData != undefined">
+          <form [formGroup]="dynamicFormGroup" (ngSubmit)="submitForm()" [style.fontSize.px]="15">
+              <ng-container>
+                  <ng-container *ngFor="let type of data.columnData.types;">
+      
+                          <ng-container *ngIf="type.type == 'text'">
+                                  <label>{{type.label}} </label> &nbsp;&nbsp;
+                                  <input matInput placeholder="{{type.label}}" formControlName="{{type.name}}" type="{{type.type}}" id="{{type.id}}" name="{{type.name}}" class="{{type.class}}" value="{{data.rowData == undefined ? '' : data.rowData[type.name]}}">
+                                  <br>
+                                  <ng-container *ngIf="errorObject[type.name] != undefined && errorObject[type.name] != ''">
+                                      <ng-container *ngIf="data.mode == 'create'">
+                                          <div *ngIf="dynamicFormGroup.get(type.name).touched">
+                                              <mat-error>
+                                                  <strong> {{errorObject[type.name]}}</strong>
+                                              </mat-error>
+                                          </div>
+                                      </ng-container>
+                                      <ng-container *ngIf="data.mode == 'update'">
+                                          <mat-error>
+                                              <strong> {{errorObject[type.name]}}</strong>
+                                          </mat-error>
+      
+                                      </ng-container>
+                                  </ng-container>
+                          </ng-container>
+      
+                          <ng-container *ngIf="type.type == 'number'">
+                                  <label>{{type.label}}: </label> &nbsp;&nbsp;
+                                  <input formControlName="{{type.name}}" type="{{type.type}}" id="{{type.id}}" name="{{type.name}}" class="{{type.class}}" value="{{data.rowData == undefined ? 0 : data.rowData[type.name]}}">
+                                  <br>
+                                  <ng-container *ngIf="errorObject[type.name] != undefined && errorObject[type.name] != ''">
+                                      <ng-container *ngIf="data.mode == 'create'">
+                                          <div *ngIf="dynamicFormGroup.get(type.name).touched">
+                                              <mat-error>
+                                                  <strong> {{errorObject[type.name]}}</strong>
+                                              </mat-error>
+                                          </div>
+                                      </ng-container>
+                                      <ng-container *ngIf="data.mode == 'update'">
+                                          <mat-error>
+                                              <strong> {{errorObject[type.name]}}</strong>
+                                          </mat-error>
+      
+                                      </ng-container>
+                                  </ng-container>
+                          </ng-container>
+      
+                          <ng-container *ngIf="type.type == 'datepicker'">
+                                         <div class="form-datepicker-container">
+                                         <label>{{type.label}}: </label>&nbsp;&nbsp;
+                                         <input  formControlName="{{type.name}}" matInput [matDatepicker]="picker" placeholder="Choose a date" [value]="data.rowData == undefined ? '' : data.rowData[type.name]" class="form-date-picker-size">
+                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker></mat-datepicker>
+                                         </div>
+      
+                                         <ng-container *ngIf="errorObject[type.name] != undefined && errorObject[type.name] != ''">
+                                                   <ng-container *ngIf="data.mode == 'create'">
+                                                             <div class="alert  alert-danger" *ngIf="dynamicFormGroup.get(type.name).touched">
+                                                                       {{errorObject[type.name]}}
+                                                                    </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="data.mode == 'update'">
+                                                             <div class="alert  alert-danger">
+                                                                            {{errorObject[type.name]}}
+                                                                  </div>
+                                                             </ng-container>
+                                                   </ng-container>
+                                    </ng-container>
+      
+                                    <ng-container *ngIf="type.type == 'select'">
+                                         <div class="form-container">
+                                              <label>{{type.label}}: </label>&nbsp;&nbsp;
+                                              <mat-select formControlName="{{type.name}}" placeholder="{{type.label}}" [(value)]="type.currentdata" class="form-select-size">
+                                                   <mat-option>None</mat-option>
+                                                   <mat-option *ngFor="let arrayValue of type.array" [value]="arrayValue">{{arrayValue}}</mat-option>
+                                              </mat-select>
+                                         </div>
+                                         <ng-container *ngIf="errorObject[type.name] != undefined && errorObject[type.name] != ''">
+                                                   <ng-container *ngIf="data.mode == 'create'">
+                                                             <div class="alert  alert-danger" *ngIf="dynamicFormGroup.get(type.name).touched">
+                                                                       {{errorObject[type.name]}}
+                                                                    </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="data.mode == 'update'">
+                                                             <div class="alert  alert-danger">
+                                                                            {{errorObject[type.name]}}
+                                                                  </div>
+                                                             </ng-container>
+                                                   </ng-container>
+                                    </ng-container>
+                                    <ng-container *ngIf="type.type == 'toggle'">
+                                              <label>{{type.label}}</label><br>
+                                              <mat-slide-toggle formControlName="{{type.name}}" class="example-margin" [color]="accent" [checked]="data.rowData == undefined ? true : data.rowData[type.name]">
+                                             </mat-slide-toggle>
+                                      </ng-container>
+                  </ng-container>
+              </ng-container>
+              <br>
+              <button type="submit" [disabled]='dynamicFormGroup.invalid' class="btn btn-secondary">Submit</button>
+              <button type="button" class="btn btn-secondary" (click)="onNoClick()">Close</button>
+          </form>
+      </ng-container>

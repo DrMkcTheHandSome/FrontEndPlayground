@@ -1,0 +1,36 @@
+{
+	"tableName": "ClientType",
+	"data": [{
+		"name": "Gabbo",
+		"description": "A2A",
+		"isactive": true
+	}, {
+		"name": "Lumberg",
+		"description": "B2B",
+		"isactive": false
+	}, {
+		"name": "Flatterbut",
+		"description": "C2C",
+		"isactive": true
+	}, {
+		"name": "Jessie Spano",
+		"description": "D2D",
+		"isactive": true
+	}, {
+		"name": "BTJ",
+		"description": "E2E",
+		"isactive": true
+	}, {
+		"name": "DEFCON 1",
+		"description": "F2F",
+		"isactive": true
+	}, {
+		"name": "H8tr",
+		"description": "G2G",
+		"isactive": true
+	}, {
+		"name": "T-800",
+		"description": "H2H",
+		"isactive": true
+	}]
+}

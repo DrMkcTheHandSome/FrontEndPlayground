@@ -1,0 +1,36 @@
+{
+	"tableName": "Industry",
+	"data": [{
+		"name": "Production",
+		"description": "A2A",
+		"isactive": true
+	}, {
+		"name": "Technology",
+		"description": "B2B",
+		"isactive": false
+	}, {
+		"name": "Marketing",
+		"description": "C2C",
+		"isactive": true
+	}, {
+		"name": "Goods",
+		"description": "D2D",
+		"isactive": true
+	}, {
+		"name": "Transport",
+		"description": "E2E",
+		"isactive": true
+	}, {
+		"name": "Sales",
+		"description": "F2F",
+		"isactive": true
+	}, {
+		"name": "Manufacturing",
+		"description": "G2G",
+		"isactive": true
+	}, {
+		"name": "Golden State",
+		"description": "H2H",
+		"isactive": false
+	}]
+}
