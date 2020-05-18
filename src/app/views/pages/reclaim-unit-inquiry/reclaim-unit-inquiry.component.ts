@@ -344,7 +344,6 @@ tabIndex: number = 0;
     dialogRef.afterClosed().subscribe(result => {
       if(result.pageTitle == undefined)
         this.saveData(result);
-
     });
   }
   alertMessage(value: any){
@@ -391,6 +390,7 @@ tabIndex: number = 0;
   }
 
   openReclaimUnitListTaskDialog() {
+    //
     let dialogRef = this.dialog.open(ReclaimUnitTaskComponent, {
       height: '450px',
       width: '800px',
