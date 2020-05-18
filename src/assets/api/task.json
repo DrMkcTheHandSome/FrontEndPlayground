@@ -1,0 +1,564 @@
+{
+    "ModalType": "ReclaimList",
+    "TableType": "TableAccordion",
+    "data": [
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      },
+      {
+        "model": "Old IP Phone 3180",
+        "quantity": 30,
+        "location": "Boston",
+        "date_reclaimed": "2020-04-25T16:00:00.000Z",
+        "reclaimed_by": "Marc Kenneth, Lomio",
+        "image": "",
+        "table": [
+          {
+            "serialnumber": "1",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "2",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "3",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "4",
+            "assettag": "ASD"
+          },
+          {
+            "serialnumber": "5",
+            "assettag": "GJFJF"
+          },
+          {
+            "serialnumber": "6",
+            "assettag": "FGJF"
+          },
+          {
+            "serialnumber": "7",
+            "assettag": "IUO"
+          },
+          {
+            "serialnumber": "8",
+            "assettag": "RTYTR"
+          },
+          {
+            "serialnumber": "10",
+            "assettag": "RTY"
+          },
+          {
+            "serialnumber": "11",
+            "assettag": "QWE"
+          },
+          {
+            "serialnumber": "12",
+            "assettag": "SDF"
+          },
+          {
+            "serialnumber": "13",
+            "assettag": "JHG"
+          },
+          {
+            "serialnumber": "14",
+            "assettag": "KH"
+          }
+        ]
+      }
+    ]
+  }

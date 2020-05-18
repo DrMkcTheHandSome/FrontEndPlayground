@@ -20,5 +20,6 @@
 		"id": "isactive",
 		"class": "isactive"
 	}],
-	"tableName": "DeviceType"
+	"tableName": "DeviceType",
+	"tableType": "Accordion"
 }

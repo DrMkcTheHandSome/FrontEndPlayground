@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import {MatTableDataSource, MatSort, MatPaginator, MatInput, MatCheckbox, MatDialog} from '@angular/material';
+import {MatTableDataSource, MatSort, MatPaginator, MatInput, MatCheckbox, MatDialog, Sort, PageEvent} from '@angular/material';
 import {UnitDeploymentInquiryMockData, UnitDeploymentInquiryTableData} from '../reclaim-unit-inquiry/mock-data';
 import {DynamicColumn, UnitDeploymentInquiry} from '../../interface/interface';
 import { DynamicModalComponent } from '../dynamic-modal/dynamic-modal.component';
@@ -7,6 +7,9 @@ import {CustomDatePipe} from '../shared/custom-pipes/date-custom-pipes';
 import { Mode } from '../shared/enums/mode';
 import swal, { SweetAlertResult } from 'sweetalert2'
 import { ProgressService } from '../services/progress-service';
+import { fromMatPaginator, paginateRows,fromMatSort, sortRows  } from '../reclaim-unit-inquiry/datasource-utils';
+import { Observable, of } from 'rxjs';
+import { defaultValues  } from '../shared/enums/default';
 
 @Component({
   selector: 'kt-dynamic-table',
@@ -15,11 +18,18 @@ import { ProgressService } from '../services/progress-service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicTableComponent implements OnInit {
+  displayedColumnsForAccordion = ["Serial Number", "Asset Tag"];
+  dataSourceForAccordion = new MatTableDataSource();
+  defaultImage: string = defaultValues.DefaultImage;
   displayedColumns = [];
   columns: DynamicColumn[] = [];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
   columnTypes: any;
   tableValues: any;
+  deepCloneTableValues: any;
+  sortedData: any;
+
+  tableType: string = "";
   pageTitle: string;
   @Output() deleteClicked: EventEmitter<string> =
   new EventEmitter<string>();
@@ -28,8 +38,11 @@ export class DynamicTableComponent implements OnInit {
     if(val != undefined){
       this.setupDynamicTable(val);
       this.columnTypes = val;
+      this.tableType = this.columnTypes.tableType 
     }
   };
+
+
 
   @Input("pageName") set pageName(val: any){
     if(val != undefined){
@@ -38,9 +51,9 @@ export class DynamicTableComponent implements OnInit {
   };
 
   @Input("tableData") set tableData(val: any){
-    if(val != undefined){
-      this.tableValues = val;
-      this.loadData(val);
+    if(val.length != 0){
+        this.tableValues = val;
+        this.loadData(val);
     }
   };
 
@@ -82,7 +95,7 @@ export class DynamicTableComponent implements OnInit {
     let dialogRef = this.dialog.open(DynamicModalComponent, {
       height: '450px',
       width: '800px',
-      data: {"rowData": row, "columnData":  this.columnTypes, "mode": Mode.Update}
+      data: {"rowData": row, "columnData":  this.columnTypes, "mode": Mode.Update,"pageTitle": this.pageTitle}
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result.mode == undefined)
@@ -148,4 +161,40 @@ export class DynamicTableComponent implements OnInit {
       } 
     })
   }
+
+  deepClone(src) {
+    return JSON.parse(JSON.stringify(src));
+  }
+ 
+  sortData(sort: Sort, tableValue: any) {
+    this.sortedData = tableValue.slice();
+    const data = tableValue.slice();
+    if (!sort.active || sort.direction == "") {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a, b) => {
+      let isAsc = sort.direction == "asc";
+      switch (sort.active) {
+        case "Serial Number": return this.compare(+a.serialnumber,+b.serialnumber, isAsc);
+        case "Asset Tag": return this.compare(a.assettag,b.assettag, isAsc);
+        default: return 0;
+      }
+    });
+
+    let currentValue = JSON.stringify(tableValue);
+   
+    this.tableValues.forEach(data => {
+       let previousValue = JSON.stringify(data.table);
+       if(currentValue == previousValue){
+        data.table = this.sortedData;
+       }
+    });
+  }
+  
+compare(a, b, isAsc) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+ 
 }

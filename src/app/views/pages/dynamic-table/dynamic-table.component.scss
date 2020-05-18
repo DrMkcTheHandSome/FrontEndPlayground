@@ -3,3 +3,67 @@
     justify-content: flex-end !important;
     padding-right: 3%;
 }
+
+.mat-accordion .mat-header-row {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    border-bottom: none;
+  }
+  
+  .mat-expansion-panel-header.mat-row {
+    border-bottom: none;
+  }
+  
+  //copied from https://github.com/angular/material2/blob/master/src/lib/table/table.scss
+  $mat-header-row-height: 56px;
+  $mat-row-height: 48px;
+  $mat-row-horizontal-padding: 24px;
+  
+  .mat-table {
+    display: block;
+  }
+  
+  .mat-header-row {
+    min-height: $mat-header-row-height;
+  }
+  
+  .mat-row {
+    min-height: $mat-row-height;
+  }
+  
+  .mat-row, .mat-header-row {
+    display: flex;
+    border-bottom-width: 1px;
+    align-items: center;
+    padding: 0 $mat-row-horizontal-padding;
+    box-sizing: border-box;
+    overflow: auto;
+    // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+    // element that will stretch the row the correct height. See:
+    // https://connect.microsoft.com/IE/feedback/details/802625
+    &::after {
+      display: inline-block;
+      min-height: inherit;
+      content: '';
+    }
+  }
+  
+  .mat-table-row{
+    overflow-y: scroll;
+    height: 300px;
+  }
+
+  .mat-table-row div:nth-child(odd) {background-color: #f2f2f2;}
+
+  .mat-row tr:nth-child(odd) {background-color: #f2f2f2;}
+
+  .mat-cell, .mat-header-cell {
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  .image {
+    border-radius: 50%;
+    width:25px;
+    height:20px
+  }

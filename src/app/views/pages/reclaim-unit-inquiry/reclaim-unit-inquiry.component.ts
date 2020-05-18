@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import {MatTableDataSource, MatSort, MatPaginator, MatInput, MatCheckbox, MatDialog} from '@angular/material';
+import {MatTableDataSource, MatSort, MatPaginator, MatInput, MatCheckbox, MatDialog, Sort, PageEvent, MatTabChangeEvent} from '@angular/material';
 import {UnitDeploymentInquiryMockData,  UnitDeploymentInquiryTableData, DeviceTypeTableColumn, DeviceTypeMockData,
    LocationTableColumn, LocationMockData, IndustryTableColumn, IndustryMockData,
    ClientTypeTableColumn,ClientTypeMockData,UserTypeTableColumn,UserTypeMockData } from './mock-data';
@@ -15,8 +15,12 @@ import { ProgressService } from '../services/progress-service';
 import { DynamicModalComponent } from '../dynamic-modal/dynamic-modal.component';
 import { Mode } from '../shared/enums/mode';
 import { DeviceType, DeviceTypeArrayData } from '../../interface/interface';
-import { Observable, EMPTY,timer, combineLatest, BehaviorSubject } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, EMPTY,timer, combineLatest, BehaviorSubject, of } from 'rxjs';
+import { catchError, tap, map } from 'rxjs/operators';
+import { fromMatPaginator, paginateRows,fromMatSort, sortRows  } from './datasource-utils';
+import { exampleShips } from './constant/constants'
+import {ShipData} from '../../interface/interface';
+import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'kt-reclaim-unit-inquiry',
@@ -25,13 +29,22 @@ import { catchError, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReclaimUnitInquiryComponent implements OnInit {
+
+  // For Mat-Table Accordion
+  @ViewChild(MatSort, {static: true}) matAccordionSort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) matAccordionPaginator: MatPaginator;
+
+  displayedRows$: Observable<ShipData[]>;
+  totalRows$: Observable<number>;
+  // End For Mat-Table Accordion
+tabIndex: number = 0;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   totalData:number = 0;
   increment: number = 1;
   displayedColumns = [];
   columns: DynamicColumn[] = [];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   tableColumn: any;
   tableData = [];
   searchData: any = "";
@@ -50,16 +63,21 @@ export class ReclaimUnitInquiryComponent implements OnInit {
   
   deviceTypeMockDataBehaviorSubject$ = this.deviceTypeService.deviceTypeMockDataBehaviorSubject(this.devicetypeArrayData$, this.deviceTypeSelectedAction$);
 
-
   pageTitle: string = "";
   constructor(private unitInquiryService: UnitInquiryService,private deviceTypeService: DeviceTypeService,
      private industryService: IndustryService, private locationService:  LocationService
-     , private userTypeService:  UserTypeService, private clientTypeService:  ClientTypeService, private progressService: ProgressService, private dialog:MatDialog) { }
+     , private userTypeService:  UserTypeService, private clientTypeService:  ClientTypeService, private progressService: ProgressService, private dialog:MatDialog) 
+     {
+
+
+      }
 
   ngOnInit() {
      this.loadUnitDeploymentInquiryData();
+     this.initMatTableAccordion();
   }
-
+ 
+ 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
@@ -355,6 +373,20 @@ export class ReclaimUnitInquiryComponent implements OnInit {
   rxjsPractice(){
     // Use this for filter purposes
     this.deviceTypeSelected.next("Printer");
+  }
+  initMatTableAccordion(){
+    const sortEvents$: Observable<Sort> = fromMatSort(this.matAccordionSort);
+    const pageEvents$: Observable<PageEvent> = fromMatPaginator(this.matAccordionPaginator);
+
+    const rows$ = of(exampleShips);
+
+    this.totalRows$ = rows$.pipe(map(rows => rows.length));
+    this.displayedRows$ = rows$.pipe(sortRows(sortEvents$), paginateRows(pageEvents$));
+  }
+
+
+  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    this.tabIndex = tabChangeEvent.index;
   }
 }
 

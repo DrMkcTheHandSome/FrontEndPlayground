@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatSortModule, MatTableModule, MatInputModule, MatPaginatorModule, MatCheckboxModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatDatepickerModule, MatSelectModule, MatGridListModule, MatListModule, MatFormFieldModule} from '@angular/material';
+import { MatSortModule, MatTableModule, MatInputModule, MatPaginatorModule, MatCheckboxModule, MatIconModule, MatDialogModule, MatSlideToggleModule, MatDatepickerModule, MatSelectModule, MatGridListModule, MatListModule, MatFormFieldModule, MatExpansionModule, MatTabsModule, MatCardModule} from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ReclaimUnitInquiryComponent } from './reclaim-unit-inquiry.component';
 import {reclaimUnitInquiryRouting} from './reclaim-unit-inquiry.routing';
@@ -12,14 +12,20 @@ import { DynamicModalComponent } from '../dynamic-modal/dynamic-modal.component'
 import { DynamicTableComponent } from '../dynamic-table/dynamic-table.component';
 import { CustomDatePipe } from '../shared/custom-pipes/date-custom-pipes';
 import { StarComponent } from '../shared/star/star.component';
+import { SharedModules } from '../shared/shared-module/share-module';
+import { NgbAccordionModule, NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-    declarations: [ReclaimUnitInquiryComponent, DynamicTableComponent, DynamicModalComponent,CustomDatePipe,StarComponent],
-    exports: [DynamicModalComponent,CustomDatePipe],
+    declarations: [ReclaimUnitInquiryComponent],
+    exports: [],
 		imports: [reclaimUnitInquiryRouting,
+			MatTabsModule,
+			MatCardModule,
+			NgbAccordionModule,
+			NgbTabsetModule,
 			MatFormFieldModule,
-			MatGridListModule,	
-        MatSortModule,
+			MatGridListModule,
+			MatSortModule,	
 		MatTableModule,
 		MatInputModule,
 		MatPaginatorModule,
@@ -30,14 +36,18 @@ import { StarComponent } from '../shared/star/star.component';
 		MatSlideToggleModule,
 		MatDatepickerModule,
 		MatSelectModule,
-		CommonModule,
 		FormsModule,
 		MatGridListModule,
+		// Mat-Table Accordion
+		CommonModule,
 		MatListModule,
+		MatExpansionModule,
 		ReactiveFormsModule,
         HttpClientModule,
-    	PartialsModule,
-		CoreModule],
+		CoreModule,
+		PartialsModule,
+		SharedModules
+	],
     entryComponents: [
 		DynamicModalComponent
 	],

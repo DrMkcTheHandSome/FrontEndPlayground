@@ -1,3 +1,8 @@
+$mat-header-row-height: 56px;
+$mat-row-height: 48px;
+$mat-row-horizontal-padding: 24px;
+$primary: dodgerblue;
+
 example-container {
     display: flex;
     flex-direction: column;
@@ -20,3 +25,83 @@ example-container {
     width: 250px;
     text-align: right;
   }
+
+  .mat-accordion .mat-header-row {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    border-bottom: none;
+  }
+  
+  .mat-expansion-panel-header.mat-row {
+    border-bottom: none;
+  }
+  
+  //copied from https://github.com/angular/material2/blob/master/src/lib/table/table.scss
+
+  .mat-table {
+    display: block;
+  }
+  
+  .mat-header-row {
+    min-height: $mat-header-row-height;
+  }
+  
+  .mat-row {
+    min-height: $mat-row-height;
+  }
+  
+  .mat-row, .mat-header-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+    padding: 0 $mat-row-horizontal-padding;
+    box-sizing: border-box;
+  
+    // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+    // element that will stretch the row the correct height. See:
+    // https://connect.microsoft.com/IE/feedback/details/802625
+    &::after {
+      display: inline-block;
+      min-height: inherit;
+      content: '';
+    }
+  }
+  
+  .mat-cell, .mat-header-cell {
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  .fa-chevron-circle-right{
+   color: $primary;
+   font-weight: bold;
+  }
+
+
+  :host ::ng-deep .tabset1 a.nav-link {
+  margin-bottom: 25px !important;
+  color: $primary !important;
+  border-left: 0px solid !important;
+  border-right: 0px solid !important;
+  border-top: 0px solid !important;
+}
+  
+  :host ::ng-deep .tabset1 a.nav-link.active{
+    font-weight: bold;
+    border: 3px solid  $primary;
+    background-color: transparent !important;
+    color: $primary !important;
+    border-radius: 0;
+    border-bottom: 3px solid;
+    padding-bottom: 2px;
+    border-color: #dee2e6 #dee2e6 $primary !important;     
+  }
+  .mat-tab-head-text{
+    margin-right: 2.8rem;
+  }
+  .mat-tab-head-text{
+    color:dodgerblue;
+    font-weight: bold; 
+  }
+ 

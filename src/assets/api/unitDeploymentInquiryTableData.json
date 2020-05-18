@@ -73,5 +73,6 @@
         "validator": ["Validators.required", "Validators.maxLength(10)","Validators.min(3)"]
       }
     ],
-    "tableName": "UnitDeploymentInquiry"
+    "tableName": "UnitDeploymentInquiry",
+    "tableType": "Table"
   }

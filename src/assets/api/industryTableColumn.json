@@ -20,5 +20,6 @@
 		"id": "isactive",
 		"class": "isactive"
 	}],
-	"tableName": "Industry"
+	"tableName": "Industry",
+	"tableType": "Table"
 }

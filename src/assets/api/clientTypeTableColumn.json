@@ -20,5 +20,6 @@
 		"id": "isactive",
 		"class": "isactive"
 	}],
-	"tableName": "ClientType"
+	"tableName": "ClientType",
+	"tableType": "Table"
 }

@@ -18,7 +18,7 @@
                   </div>
                 <h1>&nbsp;&nbsp;{{pageTitle}}</h1>
               </div>
-   <kt-dynamic-table [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData"  (ratingClicked)='onRatingClicked($event)'
+   <kt-dynamic-table  [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData"  (ratingClicked)='onRatingClicked($event)'
    (deleteClicked)='onDeleteClicked($event)'></kt-dynamic-table>
     <mat-paginator #paginator
     [length]="totalData"
@@ -27,6 +27,57 @@
   </mat-paginator>
   </div>
 
+  <button (click)="openCreateDialog()" class="btn btn-success">TASKS</button>
+  <!-- Mat- Table Accordion -->
+<h1>Mat Table Accordion </h1>
+<p>Reference: <a href="https://stackblitz.com/edit/table-like-mat-accordion?file=app%2Fapp.component.scss">Mat Table Accordion Link</a></p>
+<mat-accordion displayMode="flat" multi class="mat-table">
+  <section matSort class="mat-elevation-z2 mat-header-row">
+    <span class="mat-header-cell" mat-sort-header="vesselName">Name</span>
+    <span class="mat-header-cell" mat-sort-header="vesselId">Vessel Id</span>
+    <span class="mat-header-cell" mat-sort-header="vesselStatus">Status</span>
+    <span class="mat-header-cell" mat-sort-header="ircs">IRCS</span>
+  </section>
+
+  <mat-expansion-panel *ngFor="let item of displayedRows$ | async">
+    <mat-expansion-panel-header class="mat-row">
+      <span class="mat-cell">{{item.vesselName}}</span>
+      <span class="mat-cell">{{item.vesselId}}</span>
+      <span class="mat-cell">{{item.vesselStatus}}</span>
+      <span class="mat-cell">{{item.ircs}}</span>
+    </mat-expansion-panel-header>
+    <div><pre>HHAHAHAHHAA</pre></div>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator #matAccordionPaginator
+[length]="totalRows$ | async"
+[pageIndex]="0"
+[pageSize]="10"
+[pageSizeOptions]="[5, 10, 25, 100]"
+></mat-paginator>
+
+<!-- Tabs -->
+<mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+    <mat-tab>
+        <ng-template mat-tab-label>
+           <span class="mat-tab-head-text">Unit Information</span><i class="fa fa-chevron-circle-right" aria-hidden="true" *ngIf="tabIndex == '0'"></i>       
+        </ng-template>
+        <ng-template matTabContent>
+            Content 1
+          </ng-template>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="mat-tab-head-text">Process Reclaim</span><i class="fa fa-chevron-circle-right" aria-hidden="true" *ngIf="tabIndex == '1'"></i>       
+         </ng-template>
+         <ng-template matTabContent>
+            Content 2
+          </ng-template>   
+    </mat-tab>
+  </mat-tab-group>
+
+
+    
   <!-- RXJS Practice -->
    <!-- 
 <div *ngIf="devicetype$ | async as devicetypes">
