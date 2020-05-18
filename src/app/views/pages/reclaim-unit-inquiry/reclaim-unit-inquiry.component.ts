@@ -21,6 +21,7 @@ import { fromMatPaginator, paginateRows,fromMatSort, sortRows  } from './datasou
 import { exampleShips } from './constant/constants'
 import {ShipData} from '../../interface/interface';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
+import { ReclaimUnitTaskComponent } from '../reclaim-unit-task/reclaim-unit-task.component';
 
 @Component({
   selector: 'kt-reclaim-unit-inquiry',
@@ -387,6 +388,17 @@ tabIndex: number = 0;
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
     this.tabIndex = tabChangeEvent.index;
+  }
+
+  openReclaimUnitListTaskDialog() {
+    let dialogRef = this.dialog.open(ReclaimUnitTaskComponent, {
+      height: '450px',
+      width: '800px',
+      data: {"columnData":  this.tableColumn}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        this.log(result);
+    });
   }
 }
 

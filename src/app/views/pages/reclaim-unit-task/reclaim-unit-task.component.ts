@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'kt-reclaim-unit-task',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReclaimUnitTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ReclaimUnitTaskComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,private fb: FormBuilder)
+     { }
 
   ngOnInit() {
   }
 
+  onCloseClick(): void {  
+    this.dialogRef.close(this.data);
+    }
 }

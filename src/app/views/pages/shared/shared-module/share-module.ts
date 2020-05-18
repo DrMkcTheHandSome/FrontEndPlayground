@@ -41,6 +41,9 @@ import { ReclaimUnitTaskComponent } from '../../reclaim-unit-task/reclaim-unit-t
     DynamicModalComponent,
     CustomDatePipe,
     ReclaimUnitTaskComponent
+    ],
+    entryComponents: [
+      ReclaimUnitTaskComponent
     ]
   })
   export class SharedModules {}

@@ -1,5 +1,6 @@
 {
     "ModalType": "ReclaimList",
+    "ModalTitle": "Reclaim Units",
     "TableType": "TableAccordion",
     "data": [
       {
