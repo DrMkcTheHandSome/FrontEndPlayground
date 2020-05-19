@@ -1,3 +1,7 @@
+$percent_size: 25%;
+$border_color: silver;
+$border_style: dashed;
+
 .cdk-column-Serial-Number, .mat-column-Serial-Number{
     display: flex !important;
     justify-content: flex-end !important;
@@ -66,4 +70,11 @@
     border-radius: 50%;
     width:25px;
     height:20px
+  }
+  
+  .reclaim-list-no-data{
+    padding: $percent_size;
+    border: 1px solid $border_color;
+    border-style: $border_style;
+    text-align: center;
   }

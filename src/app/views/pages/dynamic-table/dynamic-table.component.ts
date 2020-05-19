@@ -18,6 +18,28 @@ import { defaultValues  } from '../shared/enums/default';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicTableComponent implements OnInit {
+  /* Tempest Taks */
+  isTempestTask:any;
+  mockDataObject:any;
+  getTableDataObject:any;
+  @Input("tableDataObject") set tableDataObject(val: any){
+    if(val != undefined){
+      this.getTableDataObject = val;
+      this.setupTempestTaskDynamicTable(val);
+    }
+  };
+  @Input("tempestTask") set tempestTask(val: any){
+    if(val != undefined){
+      this.isTempestTask = val;
+    }
+  };
+  @Input("mockData") set mockData(val: any){
+    if(val != undefined){
+      this.mockDataObject = val;
+    }
+  };
+
+  // Tempest Taks End
   displayedColumnsForAccordion = ["Serial Number", "Asset Tag"];
   dataSourceForAccordion = new MatTableDataSource();
   defaultImage: string = defaultValues.DefaultImage;
@@ -28,7 +50,6 @@ export class DynamicTableComponent implements OnInit {
   tableValues: any;
   deepCloneTableValues: any;
   sortedData: any;
-
   tableType: string = "";
   pageTitle: string;
   @Output() deleteClicked: EventEmitter<string> =
@@ -41,7 +62,6 @@ export class DynamicTableComponent implements OnInit {
       this.tableType = this.columnTypes.tableType 
     }
   };
-
 
 
   @Input("pageName") set pageName(val: any){
@@ -71,6 +91,19 @@ export class DynamicTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  setupTempestTaskDynamicTable(result) {
+    this.displayedColumns = [];
+    this.columns = [];
+    result.types.forEach(w => {
+      var dynamicColumn = {} as DynamicColumn;
+      dynamicColumn.name = w.name;
+      dynamicColumn.columnHeaderName = w.label;
+      dynamicColumn.type = w.type;
+     dynamicColumn.cell = (element: any) => `${element[w.name]}`;
+      this.columns.push(dynamicColumn);
+      this.displayedColumns.push(w.label);  
+    });
+  } 
   setupDynamicTable(result) {
     this.displayedColumns = [];
     this.columns = [];
@@ -185,12 +218,22 @@ export class DynamicTableComponent implements OnInit {
 
     let currentValue = JSON.stringify(tableValue);
    
-    this.tableValues.forEach(data => {
-       let previousValue = JSON.stringify(data.table);
-       if(currentValue == previousValue){
-        data.table = this.sortedData;
-       }
-    });
+    if(!this.isTempestTask){
+      this.tableValues.forEach(data => {
+        let previousValue = JSON.stringify(data.table);
+        if(currentValue == previousValue){
+         data.table = this.sortedData;
+        }
+     });
+    }else{
+      this.mockDataObject.data.forEach(data => {
+        let previousValue = JSON.stringify(data.table);
+        if(currentValue == previousValue){
+         data.table = this.sortedData;
+        }
+     });
+    }
+
   }
   
 compare(a, b, isAsc) {

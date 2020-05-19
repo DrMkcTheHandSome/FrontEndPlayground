@@ -18,7 +18,7 @@
                   </div>
                 <h1>&nbsp;&nbsp;{{pageTitle}}</h1>
               </div>
-   <kt-dynamic-table  [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData"  (ratingClicked)='onRatingClicked($event)'
+   <kt-dynamic-table  [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData" [tempestTask]="isTempestTask" (ratingClicked)='onRatingClicked($event)'
    (deleteClicked)='onDeleteClicked($event)'></kt-dynamic-table>
     <mat-paginator #paginator
     [length]="totalData"
@@ -27,7 +27,7 @@
   </mat-paginator>
   </div>
 
-  <button (click)="openReclaimUnitListTaskDialog()" class="btn btn-success">TASKS</button>
+  <button (click)="openReclaimUnitListTaskDialog()" class="btn btn-success">TASK</button>
   <!-- Mat- Table Accordion -->
 <h1>Mat Table Accordion </h1>
 <p>Reference: <a href="https://stackblitz.com/edit/table-like-mat-accordion?file=app%2Fapp.component.scss">Mat Table Accordion Link</a></p>

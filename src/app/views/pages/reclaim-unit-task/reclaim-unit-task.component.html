@@ -7,18 +7,11 @@
         <div class="modal-body">
           <div class="row">
                 <button class="btn btn-primary">Add</button>
-                <!-- <input matInput placeholder="Search" class=""> -->
                 <div class="input-group-prepend"><input #searchInput (keyup)="search($event)" type="text" class="form-control kt-quick-search__input row-left-align" placeholder="Search..." /><span class="input-group-text"><i class="flaticon2-search-1"></i></span></div>
           </div>
-          <!-- <kt-dynamic-table  [tableColumn]="tableColumn" [pageName]="pageTitle" [tableData]="tableData" [searchData]="searchData"  ></kt-dynamic-table> -->
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-            type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <kt-dynamic-table [mockData]="mockData" [tableDataObject]="tableDataObject" [tempestTask]="isTempestTask"></kt-dynamic-table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="onCloseClick()">Close</button>
-          <button type="button" class="btn btn-primary" (click)="onCloseClick()">Save changes</button>
+          <button type="button" class="btn btn-primary" (click)="fetchData()">Show Reclaim List Table</button>
         </div>
 </div>

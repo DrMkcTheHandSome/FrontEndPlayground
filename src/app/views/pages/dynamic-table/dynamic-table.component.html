@@ -1,76 +1,130 @@
-<ng-container *ngIf="columnTypes != undefined && columnTypes.tableType == 'Accordion'">
-    <mat-accordion displayMode="flat" multi class="mat-table">
-        <section matSort class="mat-elevation-z2 mat-header-row">
-            <ng-container *ngFor="let column of columns">
-                <span class="mat-header-cell" [mat-sort-header]="column.columnHeaderName">{{column.columnHeaderName}}</span>
-            </ng-container>
-        </section>
-        <mat-expansion-panel *ngFor="let tableValue of tableValues">
-            <mat-expansion-panel-header class="mat-row">
-                <ng-container *ngFor="let column of columns">
-                    <span class="mat-cell" *ngIf="column.type == 'text'">
-                <img class="image" *ngIf="column.name == 'name'" [src]="tableValue.image == '' ? defaultImage : tableValue.image">  {{rowValues(tableValue[column.name])}}
-                    </span>
-                    <span class="mat-cell" *ngIf="column.type == 'toggle'">
-                        <mat-slide-toggle class="example-margin" [color]="accent" [checked]="rowValues(tableValue[column.name])"></mat-slide-toggle>
-                    </span>
-                </ng-container>
-            </mat-expansion-panel-header>
-            <ng-template matExpansionPanelContent>
-            <div class="mat-table" matSort (matSortChange)="sortData($event,tableValue.table)">
-                <div class="mat-elevation-z2 mat-header-row">
-                    <ng-container *ngFor="let columnName of displayedColumnsForAccordion">
-                        <span class="mat-header-cell" [mat-sort-header]="columnName">{{columnName}}</span>
-                    </ng-container>
-                </div>
-                <div class="mat-table-row">
-                    <ng-container *ngFor="let table of tableValue.table">
-                        <div class="mat-row">
-                            <span class="mat-cell">
-                                {{table.serialnumber}}
-                            </span>
-                            <span class="mat-cell">
-                                {{table.assettag}}
-                            </span>
+<div *ngIf="isTempestTask == false">
+        <ng-container *ngIf="columnTypes != undefined && columnTypes.tableType == 'Accordion'">
+                <mat-accordion displayMode="flat" multi class="mat-table">
+                    <section matSort class="mat-elevation-z2 mat-header-row">
+                        <ng-container *ngFor="let column of columns">
+                            <span class="mat-header-cell" [mat-sort-header]="column.columnHeaderName">{{column.columnHeaderName}}</span>
+                        </ng-container>
+                    </section>
+                    <mat-expansion-panel *ngFor="let tableValue of tableValues">
+                        <mat-expansion-panel-header class="mat-row">
+                            <ng-container *ngFor="let column of columns">
+                                <span class="mat-cell" *ngIf="column.type == 'text'">
+                            <img class="image" *ngIf="column.name == 'name'" [src]="tableValue.image == '' ? defaultImage : tableValue.image">  {{rowValues(tableValue[column.name])}}
+                                </span>
+                                <span class="mat-cell" *ngIf="column.type == 'toggle'">
+                                    <mat-slide-toggle class="example-margin" [color]="accent" [checked]="rowValues(tableValue[column.name])"></mat-slide-toggle>
+                                </span>
+                            </ng-container>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                        <div class="mat-table" matSort (matSortChange)="sortData($event,tableValue.table)">
+                            <div class="mat-elevation-z2 mat-header-row">
+                                <ng-container *ngFor="let columnName of displayedColumnsForAccordion">
+                                    <span class="mat-header-cell" [mat-sort-header]="columnName">{{columnName}}</span>
+                                </ng-container>
+                            </div>
+                            <div class="mat-table-row">
+                                <ng-container *ngFor="let table of tableValue.table">
+                                    <div class="mat-row">
+                                        <span class="mat-cell">
+                                            {{table.serialnumber}}
+                                        </span>
+                                        <span class="mat-cell">
+                                            {{table.assettag}}
+                                        </span>
+                                    </div>
+                                </ng-container>
+                            </div>
                         </div>
-                    </ng-container>
-                </div>
-            </div>
-            </ng-template>
-        </mat-expansion-panel>
-    </mat-accordion>
-</ng-container>
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </ng-container>
+            
+            <mat-table #table [dataSource]="dataSource" matSort *ngIf="columnTypes != undefined && columnTypes.tableType == 'Table'">
+                <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnHeaderName">
+                    <mat-header-cell mat-sort-header="{{column.name}}" *cdkHeaderCellDef class="uppercase">
+                        {{column.columnHeaderName}}
+                    </mat-header-cell>
+                    <mat-cell *cdkCellDef="let row">
+                        <div class="cb-center" *ngIf="column.type == 'text'  || column.type == 'select'">
+                            <p>{{rowValues(column.cell(row))}}</p>
+                        </div>
+                        <div *ngIf="column.type == 'number' && column.name == 'rating'">
+                            <pm-star [rating]="rowValues(column.cell(row))" (ratingClicked)="onRatingClicked($event)"> </pm-star>
+                        </div>
+                        <div *ngIf="column.type == 'number' && column.name != 'rating'">
+                            <p class="align-right">{{rowValues(column.cell(row))}}</p>
+                        </div>
+                        <div class="cb-center" *ngIf="column.type == 'toggle'">
+                            <mat-slide-toggle class="example-margin" [color]="accent" [checked]="rowValues(column.cell(row))"></mat-slide-toggle>
+                        </div>
+                        <div class="cb-center" *ngIf="column.type == 'datepicker'">
+                            <p>{{rowValues(column.cell(row)) | customdatepipe}}</p>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+                <ng-container cdkColumnDef="actions">
+                    <mat-header-cell *cdkHeaderCellDef>Action</mat-header-cell>
+                    <mat-cell *cdkCellDef="let row">
+                        <i class="flaticon-edit" (click)="openUpdateDialog(row)" matTooltip="Edit"></i>
+                        &nbsp; <i class="flaticon-delete" (click)="openDeleteDialog(row)" matTooltip="Delete"></i>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>            
+</div>
 
-<mat-table #table [dataSource]="dataSource" matSort *ngIf="columnTypes != undefined && columnTypes.tableType == 'Table'">
-    <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnHeaderName">
-        <mat-header-cell mat-sort-header="{{column.name}}" *cdkHeaderCellDef class="uppercase">
-            {{column.columnHeaderName}}
-        </mat-header-cell>
-        <mat-cell *cdkCellDef="let row">
-            <div class="cb-center" *ngIf="column.type == 'text'  || column.type == 'select'">
-                <p>{{rowValues(column.cell(row))}}</p>
-            </div>
-            <div *ngIf="column.type == 'number' && column.name == 'rating'">
-                <pm-star [rating]="rowValues(column.cell(row))" (ratingClicked)="onRatingClicked($event)"> </pm-star>
-            </div>
-            <div *ngIf="column.type == 'number' && column.name != 'rating'">
-                <p class="align-right">{{rowValues(column.cell(row))}}</p>
-            </div>
-            <div class="cb-center" *ngIf="column.type == 'toggle'">
-                <mat-slide-toggle class="example-margin" [color]="accent" [checked]="rowValues(column.cell(row))"></mat-slide-toggle>
-            </div>
-            <div class="cb-center" *ngIf="column.type == 'datepicker'">
-                <p>{{rowValues(column.cell(row)) | customdatepipe}}</p>
-            </div>
-        </mat-cell>
-    </ng-container>
-    <ng-container cdkColumnDef="actions">
-        <mat-header-cell *cdkHeaderCellDef>Action</mat-header-cell>
-        <mat-cell *cdkCellDef="let row">
-            <i class="flaticon-edit" (click)="openUpdateDialog(row)" matTooltip="Edit"></i>
-            &nbsp; <i class="flaticon-delete" (click)="openDeleteDialog(row)" matTooltip="Delete"></i>
-        </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div *ngIf="isTempestTask == true">
+    <div *ngIf="mockDataObject != undefined && getTableDataObject != undefined">
+            <ng-container *ngIf="getTableDataObject.tableType == 'TableAccordion'">
+                    <mat-accordion displayMode="flat" multi class="mat-table">
+                        <section matSort class="mat-elevation-z2 mat-header-row">
+                            <ng-container *ngFor="let column of columns">
+                                <span class="mat-header-cell" [mat-sort-header]="column.columnHeaderName">{{column.columnHeaderName}}</span>
+                            </ng-container>
+                        </section>
+                        <ng-container *ngIf="mockDataObject.data.length > 0;else noData">
+                        <mat-expansion-panel *ngFor="let tableValue of mockDataObject.data">
+                            <mat-expansion-panel-header class="mat-row">
+                                <ng-container *ngFor="let column of columns">
+                                   <span class="mat-cell" *ngIf="column.type == 'text' || column.type == 'number' || column.type == 'datepicker'">
+                                <img class="image" *ngIf="column.name == 'reclaimedBy'" [src]="tableValue.image == '' ? defaultImage : tableValue.image">  {{rowValues(tableValue[column.name])}}
+                                    </span>
+                                </ng-container>
+                            </mat-expansion-panel-header>
+                            <ng-template matExpansionPanelContent>
+                            <div class="mat-table" matSort (matSortChange)="sortData($event,tableValue.table)">
+                                <div class="mat-elevation-z2 mat-header-row">
+                                    <ng-container *ngFor="let columnName of displayedColumnsForAccordion">
+                                        <span class="mat-header-cell" [mat-sort-header]="columnName">{{columnName}}</span>
+                                    </ng-container>
+                                </div>
+                                <div class="mat-table-row">
+                                    <ng-container *ngFor="let table of tableValue.table">
+                                        <div class="mat-row">
+                                            <span class="mat-cell">
+                                                {{table.serialnumber}}
+                                            </span>
+                                            <span class="mat-cell">
+                                                {{table.assettag}}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            </ng-template>
+                        </mat-expansion-panel>
+                    </ng-container>
+                    <ng-template #noData>
+                        <div class="reclaim-list-no-data">
+                           Currently, you don't have any records yet. <br>
+                           Click "Add" to process Reclaim Units
+                        </div>
+                    </ng-template>
+                    </mat-accordion>
+                </ng-container>
+       </div>
+</div>

@@ -1,0 +1,46 @@
+{
+    "types": [
+      {
+        "type": "text",
+        "label": "Model",
+        "name": "model",
+        "id": "model",
+        "class": "model",
+        "validator": []
+      },
+      {
+        "type": "number",
+        "label": "Quantity",
+        "name": "quantity",
+        "id": "quantity",
+        "class": "quantity",
+        "validator": []
+      },
+      {
+        "type": "text",
+        "label": "Location",
+        "name": "location",
+        "id": "location",
+        "class": "location",
+        "validator": []
+      },
+      {
+        "type": "datepicker",
+        "label": "Date Reclaimed",
+        "name": "datereclaimed",
+        "id": "datereclaimed",
+        "class": "datereclaimed",
+        "validator": []
+      },
+      {
+        "type": "text",
+        "label": "Reclaimed By",
+        "name": "reclaimedBy",
+        "id": "reclaimedBy",
+        "class": "reclaimedBy",
+        "validator": []
+      }
+    ],
+    "tableName": "ReclaimList",
+    "tableType": "TableAccordion"
+  }

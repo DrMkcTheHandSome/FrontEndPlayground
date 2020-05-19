@@ -13,7 +13,7 @@ import { catchError, tap } from 'rxjs/operators';
     constructor(private http: HttpClient) { }
 
     fetchReclaimUnitTaskTableData(): Observable<any> {
-        return this.http.get<any>(this.reclaimUnitTaskUrl + 'userTypeTableColumn.json')
+        return this.http.get<any>(this.reclaimUnitTaskUrl + 'reclaim-unit-list-task-table.json')
         .pipe(catchError(this.handleError));
      }
 
@@ -21,6 +21,9 @@ import { catchError, tap } from 'rxjs/operators';
         return this.http.get<any>(this.reclaimUnitTaskUrl + 'reclaim-unit-list-task.json').pipe(catchError(this.handleError));
       }
 
+      fetchReclaimUnitTaskNoMockData(): Observable<any> {
+        return this.http.get<any>(this.reclaimUnitTaskUrl + 'reclaim-unit-list-task-no-data.json').pipe(catchError(this.handleError));
+      }
     private handleError(err: HttpErrorResponse) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

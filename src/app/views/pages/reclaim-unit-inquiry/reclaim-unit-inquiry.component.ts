@@ -51,6 +51,7 @@ tabIndex: number = 0;
   searchData: any = "";
   currentData: any;
   currentIndex: number = 0;
+  isTempestTask: boolean = false;
   /* RXJS practice */
   devicetype$: Observable<DeviceType>
   devicetypetabledata$: Observable<any>;
@@ -176,45 +177,7 @@ tabIndex: number = 0;
       this.alertMessage(err);
     });
     
-    /* RXJS Practice */
-   // this.devicetype$ =  this.deviceTypeService.deviceTypeMockData$;
-
-//    this.devicetypetabledata$ =  this.deviceTypeService.deviceTypeTableData$
-
-    //this.devicetypeArrayData$ =  this.deviceTypeService.deviceTypePracticeMockData$; // using MAP
-
-      // To show the catch error, HTML or other files must use devicetypeErrorHandler$
-    // this.devicetypeErrorHandler$ =  this.deviceTypeService.fetchDeviceTypeErrorHandlerExample().pipe(
-    //  catchError(error => {
-    //    this.log(error);
-    //   return EMPTY;
-    //  })  
-    // );
-   
-    // this.devicetypeMockDataAndTableData$ = this.deviceTypeService.deviceTypeMockDataAndTableDataUsingCombineLatest$;
-    // this.devicetypeMockDataAndTableDataForkJoin$ = this.deviceTypeService.deviceTypeMockDataAndTableDataUsingForkJoin$;
-      
-//  this.deviceTypeService.deviceTypeMockDataAndTableDataUsingCombineLatest$.subscribe(mockData => {
-//       this.devicetypeArrayDataSubscribe = mockData
-//     });
-
-    // this.deviceTypeService.deviceTypePracticeMockData$.subscribe(
-    //  mockData => {this.devicetypeArrayDataSubscribe = mockData},
-    //  error =>   this.log(error),
-    //  () => console.log("1 Complete: Next , Error , Complete")
-    // );
-      //  this.rxjsPractice();
-    /* Using RXJS ShareReplay */
-    // this.deviceTypeService.deviceTypePracticeMockData$.subscribe(
-    //   mockData => {this.devicetypeArrayDataSubscribe = mockData},
-    //   error =>   this.log(error),
-    //   () => console.log("2 Complete: Next , Error , Complete")
-    //  );
-    //  this.deviceTypeService.deviceTypePracticeMockData$.subscribe(
-    //   mockData => {this.devicetypeArrayDataSubscribe = mockData},
-    //   error =>   this.log(error),
-    //   () => console.log("3 Complete: Next , Error , Complete")
-    //  );
+    
   }
 
   showDeviceTypeErrorHandler(){
@@ -339,7 +302,7 @@ tabIndex: number = 0;
     let dialogRef = this.dialog.open(DynamicModalComponent, {
       height: '450px',
       width: '800px',
-      data: {"pageTitle":  this.pageTitle, "columnData":  this.tableColumn, "mode": Mode.Create }
+      data: {"pageTitle":  this.pageTitle, "columnData":  this.tableColumn, "mode": Mode.Create, "tempestTask": false }
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result.pageTitle == undefined)
@@ -390,11 +353,10 @@ tabIndex: number = 0;
   }
 
   openReclaimUnitListTaskDialog() {
-    //
     let dialogRef = this.dialog.open(ReclaimUnitTaskComponent, {
-      height: '450px',
-      width: '800px',
-      data: {"columnData":  this.tableColumn}
+      height: '100%',
+      width: '100%',
+      data: {"type": "ReclaimListTable"} // Create Enums for this
     });
     dialogRef.afterClosed().subscribe(result => {
         this.log(result);
