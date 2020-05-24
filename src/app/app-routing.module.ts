@@ -7,6 +7,7 @@ import {ErrorPageComponent} from './views/theme/content/error-page/error-page.co
 // Auth
 import {AuthGuard} from './core/auth';
 import { ReclaimUnitInquiryComponent } from './views/pages/reclaim-unit-inquiry/reclaim-unit-inquiry.component';
+import { DirectivesComponent } from './views/pages/directives/directives.component';
 
 const routes: Routes = [
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
@@ -16,6 +17,10 @@ const routes: Routes = [
 		component: BaseComponent,
 		canActivate: [AuthGuard],
 		children: [
+			{
+			   path: 'directives',
+			   component: DirectivesComponent
+			},
 			{
 				path: 'reclaim-unit-inquiry', // <= Page URL
 				loadChildren: () =>  import('app/views/pages/reclaim-unit-inquiry/reclaim-unit-inquiry.module').then(m => m.ReclaimUnitInquiryModule),
